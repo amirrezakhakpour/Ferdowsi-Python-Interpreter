@@ -1,7 +1,9 @@
-# To contributing this project :
-- 1 . Read issues or create new
-- 2 . Fork project and change the code
-- 3 . Send Pull request
+<div dir=rtl>
+# برای کمک به پروژه :
+- 1 . مشکلات و ایده ها را بخوانید یا یکی درست کنید
+- 2 . پروژه را فورک کنید و تغییرات خود را اعمال کنید
+- 3 . پول ریکوئست بفرستید
 ---
-## Warning : Your pull request should be do not have and problem to merge
-Thanks for helping this project
+## اخطار : پول ریکوئست شما نباید مشکلی در ادغام به پروژه اصلی داشته باشد
+ممنون بخاظر کمک به پروژه
+</div>
