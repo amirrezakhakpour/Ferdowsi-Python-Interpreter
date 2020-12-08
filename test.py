@@ -34,12 +34,13 @@ tests = {
 0
 '''
 }
-"""This variable is a dictonary to declaring tests
+"""This variable is a list to declaring tests
 Structure:
-{
-    "test-script-file-name": "Output to assert"
-    "test-script-file-name2": "Output to assert2..."
-}
+[
+    ["test-script-file-name", "Output to assert"]
+    ["test-script-file-name2", "Output to assert2..."]
+    ["test-script-file-name2", ["stdin input", "Output to assert2..."]]
+]
 """
 
 if os.name == 'nt':
