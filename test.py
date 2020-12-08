@@ -54,6 +54,8 @@ print('Running tests...')
 for test in tests:
     print('testing ' + test + '...', end=' ')
     filename = test.replace('#', '')
+    if os.name == 'nt':
+        filename = filename.replace('/', '\\')
     stdin = ''
     tmp = tests[test]
     if type(tmp) == list:
