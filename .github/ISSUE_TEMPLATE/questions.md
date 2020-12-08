@@ -1,10 +1,11 @@
 ---
-name: Questions
-about: Describe this issue template's purpose here.
+name: سوال
+about: اگر سوالی دارید در مطرح کنید
 title: "???"
 labels: help wanted, question
 assignees: ''
 
 ---
 
-
+**عنوان سوال**
+سوال خود را مطرح کنید...
