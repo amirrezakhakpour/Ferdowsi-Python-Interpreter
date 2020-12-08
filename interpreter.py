@@ -27,7 +27,7 @@ class PPLLexer(Lexer):
     SHOMARANDE = r'شمارنده'
     RAW_INPUT = r'ورودی'
     NUM_INPUT = r'عددگیر'
-    NAME = r'[آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی]+'
+    NAME = r'[آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی‌]+'
     STRING = r'"(""|.)*?"'
     PRINT = r"چاپ_کن"
 

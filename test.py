@@ -12,6 +12,7 @@ tests = {
     "examples/helloworld.fd": '"سلام، دنیا!"',
     "examples/function.fd": '"ناموفق"',
     "examples/name.fd": ['hello', '"نام خود را وارد کنید"\n"سلام ""hello"'],
+    "examples/tests/semi_space.fd": ['hello', '"hello"'],
     "examples/loop.fd": '''"شماره "1
 "شماره "2
 "شماره "3
@@ -72,7 +73,8 @@ for test in tests:
         assert output == expected_output
         print('\033[32mPASS\033[0m')
     except AssertionError:
-        print('\033[31mAssertion error for ' + filename + ': output "' + output + '" is not equals expected output "' + expected_output + '"\033[0m')
+        print('\033[31mAssertion error for ' + filename + ': output "' + output + '" is not equals expected output "' + expected_output + '"')
+        raise
         sys.exit(1)
 
 print('\033[32mAll of ' + str(len(tests)) + ' tests passed successfully\033[0m')
