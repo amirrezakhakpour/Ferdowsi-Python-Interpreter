@@ -19,8 +19,6 @@ python3 interpreter.py <آدرس فایل>
 ```
 
 <div dir="rtl">
-  
-توجه: فایل باید دارای پسوند fd. باشد
 
 برای مثال:
 </div>
@@ -29,6 +27,8 @@ python3 interpreter.py <آدرس فایل>
 python3 interpreter.py examples/helloworld.fd
 ```
 <div dir="rtl">
+
+نکته: پسوند .fd برای فایل اجبرای نیست
 
 اگر در حال حاضر فایلی ندارید، می‌توانید به طور زنده در ترمینال برنامه نویسی کنید:
 </div>
