@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys
 import os
 from libs.sly import Lexer, Parser
@@ -273,7 +274,7 @@ if __name__ == '__main__':
                 tokens = lexer.tokenize(terminal)
                 tree = parser.parse(tokens)
                 PPLExecute(tree, env)
-    elif sys.argv[1].endswith('.fd'):
+    else:
         if not os.path.exists(sys.argv[1]):
             print("این فایل وجود ندارد")
             sys.exit(1)
@@ -291,5 +292,3 @@ if __name__ == '__main__':
                 except:
                     print(f"خطا در خط: {line}")
                     sys.exit(1)
-    else:
-        print('فایل باید دارای پسوند fd باشد')

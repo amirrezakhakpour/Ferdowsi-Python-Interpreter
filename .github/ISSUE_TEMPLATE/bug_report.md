@@ -1,38 +1,30 @@
 ---
-name: Bug report
-about: Create a report to help us improve
+name: گزارش مشکل
+about: در صورتی که مشکلی در برنامه مشاهده کردید با گزارش کردن آن به ما کمک کنید
 title: ''
 labels: bug
 assignees: ''
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**توضیحات مشکل**
+لطفا مشکل به وجود آمده را در اینجا توضیح دهید
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+**کد**
+```
+# کدی که به خطا خورده است را در اینجا بنویسید
+```
 
-**Expected behavior**
+**متن دقیق ارور**
+لطفا متن دقیق خطایی که دریافت کرده اید را در اینجا بنویسید
+
+**انتظار چه نتیجه ای از کدتان داشتید؟**
 A clear and concise description of what you expected to happen.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+**اطلاعات سیستم**
+- سیستم عامل: برای مثال گنو/لینوکس
+- نسخه پایتون: برای مثال 3.9
+- نسخه مفسر فردوسی
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
-
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
-
-**Additional context**
-Add any other context about the problem here.
+**توضیحات دیگر**
+اگر نکات دیگری وجود دارد در اینجا ذکر کنید
