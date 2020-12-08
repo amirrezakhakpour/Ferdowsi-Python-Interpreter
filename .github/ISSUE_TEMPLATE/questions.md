@@ -1,6 +1,6 @@
 ---
 name: سوال
-about: اگر سوالی دارید در مطرح کنید
+about: اگر سوالی دارید مطرح کنید
 title: "???"
 labels: help wanted, question
 assignees: ''
