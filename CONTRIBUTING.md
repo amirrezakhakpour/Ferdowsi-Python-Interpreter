@@ -1,4 +1,4 @@
-# To contrubuting this project :
+# To contributing this project :
 - 1 . Read issues or create new
 - 2 . Fork project and change the code
 - 3 . Send Pull request
