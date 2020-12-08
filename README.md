@@ -6,7 +6,7 @@
 خوشحال می شویم در حل مشکلات کمک کنید :
 [خطا ها](https://github.com/Ferdowsi-lang/Ferdowsi-Python-Interpreter/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
 ## روش استفاده
-در ابتدا باید پروژه را کلون کنید و کتابخانه های مورد نیاز را نصب کنید:
+در ابتدا باید پروژه را دریافت کنید و کتابخانه های مورد نیاز را نصب کنید:
 </div>
 
 ```bash
