@@ -28,6 +28,6 @@ jobs:
     - name: Running Tests
       if: false == startsWith(matrix.os, 'windows')
       run: |
-        python test.py
+        python3 test.py
 
     name: ${{ matrix.os }} Python ${{ matrix.python }}
