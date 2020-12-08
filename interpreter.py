@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import sys
 import os
-from libs.sly import Lexer, Parser
+from sly import Lexer, Parser
 
 class PPLLexer(Lexer):
     tokens = {
