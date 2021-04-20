@@ -268,8 +268,9 @@ if __name__ == '__main__':
     if len(sys.argv) < 2:
         while True:
             terminal = input('فردوسی >>> ')
-            if terminal in ("exit", "quit"):
+            if terminal in ("exit", "quit", "خروج"):
                 break
+
             else:
                 tokens = lexer.tokenize(terminal)
                 tree = parser.parse(tokens)
