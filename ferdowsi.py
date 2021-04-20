@@ -3,15 +3,16 @@ import sys
 import os
 from sly import Lexer, Parser
 
+
 class PPLLexer(Lexer):
     tokens = {
-            FROM, DO, RUN, RAW_INPUT,
-            NUM_INPUT, EQEQ, SHOMARANDE, NAME, NUMBER,
-            STRING, IF, THEN, ELSE, FOR, TO, MEANS, PRINT
+        FROM, DO, RUN, RAW_INPUT,
+        NUM_INPUT, EQEQ, SHOMARANDE, NAME, NUMBER,
+        STRING, IF, THEN, ELSE, FOR, TO, MEANS, PRINT
     }
     ignore = '\t '
 
-    literals = { '=', '+', '-', '*', '/', '(', ')', ',', ';', '.' }
+    literals = {'=', '+', '-', '*', '/', '(', ')', ',', ';', '.'}
 
     # Define tokens
     IF = r'اگر'
@@ -43,6 +44,7 @@ class PPLLexer(Lexer):
     @_(r'\n+')
     def newline(self, t):
         self.lineno = t.value.count('\n')
+
 
 class PPLParser(Parser):
     tokens = PPLLexer.tokens
@@ -140,10 +142,11 @@ class PPLParser(Parser):
     @_('STRING')
     def expr(self, p):
         return ('str', p.STRING)
-    
+
     @_('PRINT expr')
     def expr(self, p):
         return ('print', p.expr)
+
 
 class PPLExecute(object):
     def __init__(self, tree, env, output=print, input_=input):
@@ -152,9 +155,9 @@ class PPLExecute(object):
         #   1. callable with at least one argument
         #   2. an instance of Python's list
         #  In case 1: The callable is called with output of
-        #             execution of print(). Note that 
+        #             execution of print(). Note that
         #             the return value of the callable is discarded.
-        #             The only argument passed to output has a type of 
+        #             The only argument passed to output has a type of
         #             string.
         #  In case 2: Everytime print() is called, the result
         #             is appended to tail of list.
@@ -174,7 +177,7 @@ class PPLExecute(object):
         if not callable(input_):
             raise ValueError("input_ is not callable")
         self.input_ = input_
-        
+
         self.env = env
         result = self.walk_tree(tree)
         if result is not None and isinstance(result, int):
@@ -185,7 +188,7 @@ class PPLExecute(object):
     def walk_tree(self, node):
         if isinstance(node, int) or isinstance(node, str) or node is None:
             return node
-        if node[0] in [ 'num', 'str' ]:
+        if node[0] in ['num', 'str']:
             return node[1]
         if node[0] == 'raw_input':
             return '"' + self.input_() + '"'
@@ -261,20 +264,38 @@ class PPLExecute(object):
             self._out(result)
             return result
 
+
 if __name__ == '__main__':
     lexer = PPLLexer()
     parser = PPLParser()
     env = {}
     if len(sys.argv) < 2:
         while True:
-            terminal = input('فردوسی >>> ')
-            if terminal in ("exit", "quit", "خروج"):
-                break
+            try:
+                terminal = input('فردوسی >>> ')
 
-            else:
-                tokens = lexer.tokenize(terminal)
-                tree = parser.parse(tokens)
-                PPLExecute(tree, env)
+                if terminal in ("exit", "quit", "خروج"):
+                    break
+
+                else:
+                    tokens = lexer.tokenize(terminal)
+                    tree = parser.parse(tokens)
+                    PPLExecute(tree, env)
+            except EOFError:
+                yesORno = input("آیا واقعا میخواهید خارج شوید؟([بله] خیر)")
+                if yesORno == "بله":
+                    exit(0)
+                if yesORno == "":
+                    exit(0)
+                else:
+                    while yesORno != "خیر":
+                        yesORno = input(
+                            "فردوسی >>> آیا واقعا میخواهید خارج شوید؟([بله] خیر)")
+                        if yesORno == "بله":
+                            exit(0)
+                        if yesORno == "":
+                            exit(0)
+
     else:
         if not os.path.exists(sys.argv[1]):
             print("این فایل وجود ندارد")
