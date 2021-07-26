@@ -3,7 +3,25 @@ import sys
 import os
 from sly import Lexer, Parser
 
-
+TB = { 'FA': {
+                'IF' : r'اگر',
+    'THEN' : r'باشد آنگاه',
+   'ELSE' : r'وگرنه',
+    'FROM' : r'از',
+    'DO' : r'انجام بده',
+    'FOR' : r'برای',
+    'RUN' : r'را اجرا کن',
+    'TO' : r'تا',
+    'MEANS' : r'یعنی',
+    'EQEQ' : r'برابر',
+    'SHOMARANDE' : r'شمارنده',
+    'RAW_INPUT' : r'ورودی',
+    'NUM_INPUT' : r'عددگیر',
+    'NAME' : r'[آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی‌]+',
+    'STRING' : r'"(""|.)*?"',
+    'PRINT' : r"چاپ_کن"
+                }
+}
 class PPLLexer(Lexer):
     tokens = {
         FROM, DO, RUN, RAW_INPUT,
@@ -15,22 +33,29 @@ class PPLLexer(Lexer):
     literals = {'=', '+', '-', '*', '/', '(', ')', ',', ';', '.'}
 
     # Define tokens
-    IF = r'اگر'
-    THEN = r'باشد آنگاه'
-    ELSE = r'وگرنه'
-    FROM = r'از'
-    DO = r'انجام بده'
-    FOR = r'برای'
-    RUN = r'را اجرا کن'
-    TO = r'تا'
-    MEANS = r'یعنی'
-    EQEQ = r'برابر'
-    SHOMARANDE = r'شمارنده'
-    RAW_INPUT = r'ورودی'
-    NUM_INPUT = r'عددگیر'
-    NAME = r'[آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی‌]+'
-    STRING = r'"(""|.)*?"'
-    PRINT = r"چاپ_کن"
+    IF = TB['FA']['IF']
+    THEN = TB['FA']['THEN']
+    ELSE = TB['FA']['ELSE']
+    FROM = TB['FA']['FROM']
+    DO = TB['FA']['DO']
+    FOR = TB['FA']['FOR']
+    RUN = TB['FA']['RUN']
+    TO = TB['FA']['TO']
+    MEANS = TB['FA']['MEANS']
+    EQEQ = TB['FA']['EQEQ']
+    
+
+
+    SHOMARANDE = TB['FA']['SHOMARANDE']
+    RAW_INPUT = TB['FA']['RAW_INPUT']
+    NUM_INPUT = TB['FA']['NUM_INPUT']
+    NAME = TB['FA']['NAME']
+    STRING = TB['FA']['STRING']
+    PRINT = TB['FA']['PRINT']
+    
+    def __init__(self, lang="FA"):
+        self.LANG = lang
+        
 
     @_(r'\d+')
     def NUMBER(self, t):
@@ -303,6 +328,11 @@ if __name__ == '__main__':
         if os.path.isdir(sys.argv[1]):
             print("این یک پوشه هست و نه فایل")
             sys.exit(1)
+        if (len(sys.argv) == 3):
+            LANG = sys.argv[2]
+        else:
+            print('هیچ زبانی مشخص نشده، پیشفرض فارسی است')
+
         with open(sys.argv[1], encoding="utf-8") as fp:
             line = "# somecomment"
             while line:
